@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IFSP Campus Birigui - Fundo animado</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      background-color: #0f4c20; /* verde escuro */
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .background {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #0f4c20;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    /* Quadrados do fundo */
+    .square {
+      position: absolute;
+      background: linear-gradient(145deg, #27ae60, #145a23);
+      border-radius: 6px;
+      opacity: 0;
+      animation: fadeInMove 1.5s ease forwards;
+    }
+
+    /* Tamanhos dos quadrados */
+    .big {
+      width: 120px;
+      height: 120px;
+    }
+    .small {
+      width: 60px;
+      height: 60px;
+    }
+
+    /* Posicionamento quadrados */
+    .top-left {
+      top: 40px;
+      left: 40px;
+      animation-delay: 0.2s;
+    }
+    .top-left-2 {
+      top: 180px;
+      left: 40px;
+      animation-delay: 0.4s;
+    }
+
+    .top-right {
+      top: 60px;
+      right: 40px;
+      animation-delay: 0.6s;
+    }
+    .top-right-2 {
+      top: 150px;
+      right: 40px;
+      animation-delay: 0.8s;
+    }
+
+    .bottom-right {
+      bottom: 70px;
+      right: 60px;
+      animation-delay: 1s;
+    }
+    .bottom-right-2 {
+      bottom: 30px;
+      right: 170px;
+      animation-delay: 1.2s;
+    }
+
+    .bottom-left {
+      bottom: 50px;
+      left: 150px;
+      animation-delay: 1.4s;
+    }
+    .bottom-left-2 {
+      bottom: 20px;
+      left: 40px;
+      animation-delay: 1.6s;
+    }
+
+    /* Animação quadrados fade e movimento */
+    @keyframes fadeInMove {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Linhas SVG */
+    .lines {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      transform: translate(-50%, -50%);
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;
+      animation: drawLines 3s ease forwards;
+      z-index: 1;
+    }
+
+    @keyframes drawLines {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Logo IFSP branca centralizada */
+    .logo-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      color: white;
+    }
+
+    /* Grid logo IFSP */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      grid-template-rows: repeat(4, 60px);
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    /* Quadrados da logo */
+    .square-logo {
+      background-color: white;
+      border-radius: 8px;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInMove 0.7s ease forwards;
+    }
+
+    /* Círculo logo */
+    .circle {
+      background-color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInMove 0.7s ease forwards;
+      animation-delay: 0s;
+    }
+
+    /* Espaços vazios */
+    .empty {
+      width: 60px;
+      height: 60px;
+    }
+
+    /* Animação escalonada dos quadrados e círculo da logo */
+    /* Cada filho da logo-grid recebe um delay diferente para animação */
+    .logo-grid > div:nth-child(1) {
+      animation-delay: 0s; /* círculo */
+    }
+    .logo-grid > div:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .logo-grid > div:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .logo-grid > div:nth-child(4) {
+      animation-delay: 0.45s;
+    }
+    .logo-grid > div:nth-child(5) {
+      animation-delay: 0.6s;
+    }
+    /* empty no 6 não anima */
+    .logo-grid > div:nth-child(7) {
+      animation-delay: 0.75s;
+    }
+    .logo-grid > div:nth-child(8) {
+      animation-delay: 0.9s;
+    }
+    .logo-grid > div:nth-child(9) {
+      animation-delay: 1.05s;
+    }
+    .logo-grid > div:nth-child(10) {
+      animation-delay: 1.2s;
+    }
+    .logo-grid > div:nth-child(11) {
+      animation-delay: 1.35s;
+    }
+    /* empty no 12 não anima */
+
+    /* Texto abaixo da logo */
+    .logo-text {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1.2;
+      font-family: 'Arial Black', Arial, sans-serif;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .logo-subtext {
+      font-weight: normal;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <!-- Quadrados do fundo -->
+    <div class="square big top-left"></div>
+    <div class="square small top-left-2"></div>
+
+    <div class="square big top-right"></div>
+    <div class="square small top-right-2"></div>
+
+    <div class="square big bottom-right"></div>
+    <div class="square small bottom-right-2"></div>
+
+    <div class="square big bottom-left"></div>
+    <div class="square small bottom-left-2"></div>
+
+    <!-- Linhas animadas (SVG) -->
+    <svg class="lines" width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Quadrados externos -->
+      <rect x="50" y="50" width="500" height="500" stroke="#2ecc71" stroke-width="4" />
+      <!-- Linhas internas diagonais -->
+    </svg>
+  </div>
+
+  <div class="logo-container">
+    <!-- Logo IFSP branca 3 colunas -->
+    <div class="logo-grid">
+      <div class="circle"></div>
+      <div class="square-logo"></div>
+      <div class="square-logo"></div>
+
+      <div class="square-logo"></div>
+      <div class="square-logo"></div>
+      <div class="empty"></div>
+
+      <div class="square-logo"></div>
+      <div class="square-logo"></div>
+      <div class="square-logo"></div>
+
+      <div class="square-logo"></div>
+      <div class="square-logo"></div>
+      <div class="empty"></div>
+    </div>
+    <!-- Texto abaixo da logo -->
+    <div class="logo-text">INSTITUTO FEDERAL</div>
+    <div class="logo-subtext">CÂMPUS BIRIGUI</div>
+  </div>
+</body>
+</html>

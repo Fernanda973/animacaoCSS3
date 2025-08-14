@@ -13,7 +13,8 @@
     }
     html, body {
       height: 100%;
-      background-color: #0f4c20; /* verde escuro */
+      background: #249c34;
+      background: radial-gradient(circle, rgba(36, 156, 52, 1) 0%, rgba(22, 94, 4, 1) 100%);
       overflow: hidden;
       font-family: Arial, sans-serif;
     }
@@ -24,16 +25,78 @@
       background-color: #0f4c20;
       overflow: hidden;
       z-index: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#2ecc71 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.2;
+      animation: fadeDots 5s ease-in-out infinite alternate;
     }
 
     /* Quadrados do fundo */
     .square {
       position: absolute;
-      background: linear-gradient(145deg, #27ae60, #145a23);
+      background: linear-gradient(145deg, #00ff15, #41ac58);
       border-radius: 6px;
       opacity: 0;
       animation: fadeInMove 1.5s ease forwards;
     }
+    /*.dots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(#2ecc71 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    animation: fadeDots 5s ease-in-out infinite alternate;
+    }*/
+    @keyframes brilhar {
+      0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #00ff00);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 15px #00ff00);
+      }
+    }
+    .container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    .estrela {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: radial-gradient(circle, #00ff00, transparent 70%);
+      clip-path: polygon(
+        50% 0%, 61% 35%, 98% 35%, 68% 57%,
+        79% 91%, 50% 70%, 21% 91%, 32% 57%,
+        2% 35%, 39% 35%
+      );
+      animation: brilhar 2s infinite ease-in-out;
+    }
+
+    .estrela:nth-child(1) { top: 20%; left: 10%; }
+    .estrela:nth-child(2) { top: 40%; left: 30%; }
+    .estrela:nth-child(3) { top: 70%; left: 60%; }
+    .estrela:nth-child(4) { top: 25%; left: 75%; }
+    .estrela:nth-child(5) { top: 80%; left: 20%; }
+    .estrela:nth-child(6) { top: 28%; left: 40%; }
+    .estrela:nth-child(7) { top: 10%; left: 55%; }
+    .estrela:nth-child(8) { top: 90%; left: 90%; }
+    .estrela:nth-child(9) { top: 15%; left: 70%; }
+    .estrela:nth-child(10) { top: 30%; left: 80%; }
+    .estrela:nth-child(11) { top: 50%; left: 15%; }
+    .estrela:nth-child(12) { top: 60%; left: 50%; }
 
     /* Tamanhos dos quadrados */
     .big {
@@ -149,22 +212,32 @@
       border-radius: 8px;
       width: 60px;
       height: 60px;
+      box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3);  /* sombra leve */
       opacity: 0;
       transform: translateY(20px);
       animation: fadeInMove 0.7s ease forwards;
     }
+    
+    @keyframes trocaDeCores {
+      0%   { background-color: blue; }
+      25%  { background-color: yellow; }
+      50%  { background-color: rgb(255, 0, 221); }
+      75%  { background-color: rgb(101, 0, 216); }
+      100% { background-color: rgb(255, 52, 52); }
+    }
 
     /* Círculo logo */
     .circle {
-      background-color: white;
+      background-color: blue;
       border-radius: 50%;
       width: 60px;
       height: 60px;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeInMove 0.7s ease forwards;
-      animation-delay: 0s;
-    }
+      animation:
+      fadeInMove 0.7s ease forwards,
+      trocaDeCores 5s 0.7s forwards; /* 0.7s delay para iniciar após o fadeIn */
+  }
 
     /* Espaços vazios */
     .empty {
@@ -175,58 +248,111 @@
     /* Animação escalonada dos quadrados e círculo da logo */
     /* Cada filho da logo-grid recebe um delay diferente para animação */
     .logo-grid > div:nth-child(1) {
-      animation-delay: 0s; /* círculo */
+
+      animation-delay: 1s; /* círculo */
     }
     .logo-grid > div:nth-child(2) {
-      animation-delay: 0.15s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(3) {
-      animation-delay: 0.3s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(4) {
-      animation-delay: 0.45s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(5) {
-      animation-delay: 0.6s;
+      animation-delay: 1s;
     }
     /* empty no 6 não anima */
     .logo-grid > div:nth-child(7) {
-      animation-delay: 0.75s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(8) {
-      animation-delay: 0.9s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(9) {
-      animation-delay: 1.05s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(10) {
-      animation-delay: 1.2s;
+      animation-delay: 1s;
     }
     .logo-grid > div:nth-child(11) {
-      animation-delay: 1.35s;
+      animation-delay: 1s;
     }
     /* empty no 12 não anima */
 
     /* Texto abaixo da logo */
+    @keyframes slidein {
+      from {
+        margin-left: 100%;
+        width: 300%;
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+    }
+    
     .logo-text {
       font-weight: bold;
       font-size: 24px;
       line-height: 1.2;
-      font-family: 'Arial Black', Arial, sans-serif;
+      font-family: "Archivo Black", sans-serif;
       letter-spacing: 1px;
       margin-bottom: 6px;
+      overflow: hidden;               
+      white-space: nowrap;            
+      border-right: 2px solid white; 
+      animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite;
     }
 
-    .logo-subtext {
-      font-weight: normal;
-      font-size: 18px;
-      letter-spacing: 1.5px;
+    .logo-subtext { 
+      margin-left: 25px;
+      font-weight: normal; 
+      font-size: 20px; 
+      letter-spacing: 1px; 
+      overflow: hidden;               
+      white-space: nowrap;  
+      font-family: "Archivo Black", sans-serif; 
+      animation: typing2 3s steps(18) forwards, blinkCaret 0.75s step-end infinite;
+
+    }
+    
+    /* Animação que revela o texto letra por letra */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch } /* 18 caracteres, ajuste se mudar texto */
+    }
+
+    @keyframes typing2 {
+      from { width: 0 }
+      to { width: 18ch } /* 18 caracteres, ajuste se mudar texto */
+    }
+    
+    /* Piscar do cursor */
+    @keyframes blinkCaret {
+      0%, 100% { border-color: transparent }
+      50% { border-color: white }
     }
   </style>
 </head>
 <body>
   <div class="background">
-    <!-- Quadrados do fundo -->
+    <div class="container">
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+      <div class="estrela"></div>
+    </div>
     <div class="square big top-left"></div>
     <div class="square small top-left-2"></div>
 
@@ -238,17 +364,17 @@
 
     <div class="square big bottom-left"></div>
     <div class="square small bottom-left-2"></div>
+    <div class="dots"></div>
 
-    <!-- Linhas animadas (SVG) -->
     <svg class="lines" width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Quadrados externos -->
+
       <rect x="50" y="50" width="500" height="500" stroke="#2ecc71" stroke-width="4" />
-      <!-- Linhas internas diagonais -->
+
     </svg>
   </div>
 
   <div class="logo-container">
-    <!-- Logo IFSP branca 3 colunas -->
+
     <div class="logo-grid">
       <div class="circle"></div>
       <div class="square-logo"></div>
@@ -266,7 +392,7 @@
       <div class="square-logo"></div>
       <div class="empty"></div>
     </div>
-    <!-- Texto abaixo da logo -->
+    <div class="dots"></div>
     <div class="logo-text">INSTITUTO FEDERAL</div>
     <div class="logo-subtext">CÂMPUS BIRIGUI</div>
   </div>

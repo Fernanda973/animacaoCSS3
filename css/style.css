@@ -1,2 +1,696 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html, body {
+    height: 100%;
+    background: #249c34;
+    background: radial-gradient(circle, rgba(36, 156, 52, 1) 0%, rgba(22, 94, 4, 1) 100%);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0f4c20;
+    overflow: hidden;
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#2ecc71 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    animation: fadeDots 5s ease-in-out infinite alternate;
+}
+
+/* Quadrados do fundo */
+.square {
+    position: absolute;
+    background: linear-gradient(145deg, #00ff15, #41ac58);
+    border-radius: 6px;
+    opacity: 0;
+    animation: fadeInMove 1.5s ease forwards;
+}
+
+/*.dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(#2ecc71 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.2;
+  animation: fadeDots 5s ease-in-out infinite alternate;
+  }*/
+@keyframes brilhar {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #00ff00);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 15px #00ff00);
+    }
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.estrela {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #00ff00, transparent 70%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%,
+            79% 91%, 50% 70%, 21% 91%, 32% 57%,
+            2% 35%, 39% 35%);
+    animation: brilhar 2s infinite ease-in-out;
+}
+
+.estrela:nth-child(1) {
+    top: 20%;
+    left: 10%;
+}
+
+.estrela:nth-child(2) {
+    top: 40%;
+    left: 30%;
+}
+
+.estrela:nth-child(3) {
+    top: 70%;
+    left: 60%;
+}
+
+.estrela:nth-child(4) {
+    top: 25%;
+    left: 75%;
+}
+
+.estrela:nth-child(5) {
+    top: 80%;
+    left: 20%;
+}
+
+.estrela:nth-child(6) {
+    top: 28%;
+    left: 40%;
+}
+
+.estrela:nth-child(7) {
+    top: 10%;
+    left: 55%;
+}
+
+.estrela:nth-child(8) {
+    top: 90%;
+    left: 90%;
+}
+
+.estrela:nth-child(9) {
+    top: 15%;
+    left: 70%;
+}
+
+.estrela:nth-child(10) {
+    top: 30%;
+    left: 80%;
+}
+
+.estrela:nth-child(11) {
+    top: 50%;
+    left: 15%;
+}
+
+.estrela:nth-child(12) {
+    top: 60%;
+    left: 50%;
+}
+
+/* Tamanhos dos quadrados */
+.big {
+    width: 120px;
+    height: 120px;
+}
+
+.small {
+    width: 60px;
+    height: 60px;
+}
+
+/* Posicionamento quadrados */
+.top-left {
+    top: 40px;
+    left: 40px;
+    animation-delay: 0.2s;
+}
+
+.top-left-2 {
+    top: 180px;
+    left: 40px;
+    animation-delay: 0.4s;
+}
+
+.top-right {
+    top: 60px;
+    right: 40px;
+    animation-delay: 0.6s;
+}
+
+.top-right-2 {
+    top: 150px;
+    right: 40px;
+    animation-delay: 0.8s;
+}
+
+.bottom-right {
+    bottom: 70px;
+    right: 60px;
+    animation-delay: 1s;
+}
+
+.bottom-right-2 {
+    bottom: 30px;
+    right: 170px;
+    animation-delay: 1.2s;
+}
+
+.bottom-left {
+    bottom: 50px;
+    left: 150px;
+    animation-delay: 1.4s;
+}
+
+.bottom-left-2 {
+    bottom: 20px;
+    left: 40px;
+    animation-delay: 1.6s;
+}
+
+/* Animação quadrados fade e movimento */
+@keyframes fadeInMove {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Linhas SVG */
+.lines {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawLines 3s ease forwards;
+    z-index: 1;
+}
+
+@keyframes drawLines {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Logo IFSP branca centralizada */
+.logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+/* Grid logo IFSP */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(4, 60px);
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Quadrados da logo */
+.square-logo {
+    background-color: white;
+    border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3);
+    /* sombra leve */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInMove 0.7s ease forwards;
+}
+
+@keyframes trocaDeCores {
+    0% {
+        background-color: blue;
+    }
+
+    25% {
+        background-color: yellow;
+    }
+
+    50% {
+        background-color: rgb(255, 0, 221);
+    }
+
+    75% {
+        background-color: rgb(101, 0, 216);
+    }
+
+    100% {
+        background-color: rgb(255, 52, 52);
+    }
+}
+
+/* Círculo logo */
+.circle {
+    background-color: blue;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation:
+        fadeInMove 0.7s ease forwards,
+        trocaDeCores 5s 0.7s forwards;
+    /* 0.7s delay para iniciar após o fadeIn */
+}
+
+/* Espaços vazios */
+.empty {
+    width: 60px;
+    height: 60px;
+}
+
+/* Animação escalonada dos quadrados e círculo da logo */
+/* Cada filho da logo-grid recebe um delay diferente para animação */
+.logo-grid>div:nth-child(1) {
+
+    animation-delay: 1s;
+    /* círculo */
+}
+
+.logo-grid>div:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(4) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(5) {
+    animation-delay: 1s;
+}
+
+/* empty no 6 não anima */
+.logo-grid>div:nth-child(7) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(8) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(9) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(10) {
+    animation-delay: 1s;
+}
+
+.logo-grid>div:nth-child(11) {
+    animation-delay: 1s;
+}
+
+/* empty no 12 não anima */
+
+/* Texto abaixo da logo */
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.2;
+    font-family: "Archivo Black", sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid white;
+    animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite;
+}
+
+.logo-subtext {
+    margin-left: 25px;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: "Archivo Black", sans-serif;
+    animation: typing2 3s steps(18) forwards, blinkCaret 0.75s step-end infinite;
+
+}
+
+/* Animação que revela o texto letra por letra */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 20ch
+    }
+
+    /* 18 caracteres, ajuste se mudar texto */
+}
+
+@keyframes typing2 {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 18ch
+    }
+
+    /* 18 caracteres, ajuste se mudar texto */
+}
+
+/* Piscar do cursor */
+@keyframes blinkCaret {
+    0%, 100% {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: white
+    }
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 0px #00ff00;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    }
+
+    100% {
+        box-shadow: 0 0 0px #00ff00;
+    }
+}
+
+.square-logo {
+    background-color: white;
+    border-radius: 8px;
+    width: 60px;
+    height: 60px;
+    box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInMove 0.7s ease forwards;
+    position: relative;
+    z-index: 1;
+}
+
+.square-logo::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background: rgba(109, 252, 73, 0.986);
+    filter: blur(8px);
+    opacity: 0;
+    z-index: -1;
+    animation: neonGlow 2s ease-in-out 2.2s forwards;
+    animation: fadeInMove 0.7s ease forwards, apagar 1s ease 5s forwards;
+}
+
+@keyframes apagar {
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+/* Nova animação para sumir o quadrado verde */
+@keyframes fadeOut {
+    to {
+      opacity: 0;
+    }
+  }
+  
+  /* Animação para mover logo-container para esquerda */
+  @keyframes moveLeft {
+    to {
+      transform: translate(calc(-50% - 400px), -50%);
+    }
+  }
+  
+  /* Modificação na classe .lines para adicionar delay e sumir após desenho */
+  .lines {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;
+    z-index: 1;
+  }
+  
+  /* Faz o texto sumir após os quadrados aparecerem */
+  .logo-text, .logo-subtext {
+    animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite, fadeOut 1s ease 4s forwards;
+  }
+  
+  /* Depois que o quadrado e texto sumirem, move o container da logo */
+  .logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    animation: moveLeft 1s ease 5s forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Ajuste para não piscar o cursor durante fade out */
+  @keyframes blinkCaret {
+    0%, 100% {
+      border-color: transparent;
+    }
+    50% {
+      border-color: white;
+    }
+  }
+  
+  /* Para as animações typing permanecerem na largura final antes do fadeOut */
+  .logo-text {
+    width: 20ch;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .logo-subtext {
+    width: 18ch;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .new-text {
+    position: absolute;
+    top: -60px; /* fica um pouco acima da logo */
+    left: 50%;
+    transform: translate(-50%, 20px); /* centraliza horizontal e começa um pouco abaixo */
+    width: max-content;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+    opacity: 0;
+    animation: fadeInUp 0.7s forwards;
+    animation-delay: 5s; /* ajustar conforme a animação da logo */
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  .categoria-bloco {
+    position: fixed;
+    top: 50%;
+    left: 300%; /* espaço à direita da logo */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    z-index: 10;
+    animation: fadeInCategorias 1s forwards, pularPraCima 6s forwards;
+    animation-delay: 5s, 12s; /* primeiro aparece, depois sobe */
+  }
+  
+  .categoria-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+  
+  .categoria-single {
+    margin-top: 10px;
+  }
+  
+  .categoria-card {
+    background: rgba(22, 94, 4, 0.95);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    box-shadow: 0 0 10px #2ecc71;
+    font-family: "Poppins", sans-serif;
+    animation: fadeInMove 0.8s ease forwards;
+    height: 405px;
+  }
+  
+  .categoria-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  
+  .categoria-card ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .categoria-card li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .categoria-card a {
+    color: #00ff00;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .categoria-card a:hover {
+    color: #2ecc71
+  }
+  
+  @keyframes fadeInCategorias {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes subirECurtir {
+    0% {
+      transform: translate(50%, 500%);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(50%, 200%);
+      opacity: 0;
+    }
+  }
+  
+  /* Reutiliza a animação existente */
+  @keyframes fadeInMove {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  
+  @keyframes titulo {
+    0% {
+      opacity: 0;
+      transform: translateX(0) translateY(0);
+    }
+    25% {
+      opacity: 1;
+      transform: translateY(250px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(250px);
+        transform: translateX(50px);
+    }
+  }
+
+  .animate-titulo{
+    font-size: larger;
+    animation: titulo 1s 6s linear forwards;
+  }
+  
+  
+
+  
   

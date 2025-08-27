@@ -15,26 +15,19 @@ html, body {
 
 .background {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: #0f4c20;
     overflow: hidden;
-    z-index: 0;
-    position: absolute;
     top: 0;
     right: 0;
     width: 100%;
     height: 100%;
     background-image: radial-gradient(#2ecc71 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.2;
+    background-size: 25px 25px;
     animation: fadeDots 5s ease-in-out infinite alternate;
 }
 
 /* Quadrados do fundo */
-.square {
+.quadrado {
     position: absolute;
     background: linear-gradient(145deg, #00ff15, #41ac58);
     border-radius: 6px;
@@ -42,17 +35,6 @@ html, body {
     animation: fadeInMove 1.5s ease forwards;
 }
 
-/*.dots {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 200px;
-  background-image: radial-gradient(#2ecc71 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.2;
-  animation: fadeDots 5s ease-in-out infinite alternate;
-  }*/
 @keyframes brilhar {
     0%, 100% {
         opacity: 0.5;
@@ -84,6 +66,7 @@ html, body {
     animation: brilhar 2s infinite ease-in-out;
 }
 
+/* POSIÇÃO DAS ESTRELAS*/
 .estrela:nth-child(1) {
     top: 20%;
     left: 10%;
@@ -204,7 +187,7 @@ html, body {
     animation-delay: 1.6s;
 }
 
-/* Animação quadrados fade e movimento */
+/* Animação quadrados, APARECEM SUAVEMENTE NA TELA */
 @keyframes fadeInMove {
     0% {
         opacity: 0;
@@ -227,7 +210,7 @@ html, body {
     transform: translate(-50%, -50%);
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
-    animation: drawLines 3s ease forwards;
+    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;;
     z-index: 1;
 }
 
@@ -246,6 +229,8 @@ html, body {
     z-index: 2;
     text-align: center;
     color: white;
+    animation: moveLeft 1s ease 5s forwards;
+    animation-fill-mode: forwards;
 }
 
 /* Grid logo IFSP */
@@ -259,14 +244,12 @@ html, body {
 }
 
 /* Quadrados da logo */
-.square-logo {
+.quadrado-logo {
     background-color: white;
     border-radius: 8px;
     width: 60px;
     height: 60px;
-    box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3);
-    /* sombra leve */
-    opacity: 0;
+    box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3); /* sombra leve */
     transform: translateY(20px);
     animation: fadeInMove 0.7s ease forwards;
 }
@@ -307,43 +290,37 @@ html, body {
     /* 0.7s delay para iniciar após o fadeIn */
 }
 
-/* Espaços vazios */
-.empty {
-    width: 60px;
-    height: 60px;
-}
-
 /* Animação escalonada dos quadrados e círculo da logo */
 /* Cada filho da logo-grid recebe um delay diferente para animação */
 .logo-grid>div:nth-child(1) {
 
-    animation-delay: 1s;
+    animation-delay: 0.3s;
     /* círculo */
 }
 
 .logo-grid>div:nth-child(2) {
-    animation-delay: 1s;
+    animation-delay: 0.4s;
 }
 
 .logo-grid>div:nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: 0.5s;
 }
 
 .logo-grid>div:nth-child(4) {
-    animation-delay: 1s;
+    animation-delay: 0.6s;
 }
 
 .logo-grid>div:nth-child(5) {
-    animation-delay: 1s;
+    animation-delay: 0.7s;
 }
 
 /* empty no 6 não anima */
 .logo-grid>div:nth-child(7) {
-    animation-delay: 1s;
+    animation-delay: 0.8s;
 }
 
 .logo-grid>div:nth-child(8) {
-    animation-delay: 1s;
+    animation-delay: 0.9s;
 }
 
 .logo-grid>div:nth-child(9) {
@@ -351,34 +328,19 @@ html, body {
 }
 
 .logo-grid>div:nth-child(10) {
-    animation-delay: 1s;
+    animation-delay: 1.1s;
 }
 
 .logo-grid>div:nth-child(11) {
-    animation-delay: 1s;
+    animation-delay: 1.2s;
 }
-
-/* empty no 12 não anima */
 
 /* Texto abaixo da logo */
-@keyframes slidein {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
-
-    to {
-        margin-left: 0%;
-        width: 100%;
-    }
-}
-
 .logo-text {
     font-weight: bold;
     font-size: 24px;
     line-height: 1.2;
     font-family: "Archivo Black", sans-serif;
-    letter-spacing: 1px;
     margin-bottom: 6px;
     overflow: hidden;
     white-space: nowrap;
@@ -390,7 +352,6 @@ html, body {
     margin-left: 25px;
     font-weight: normal;
     font-size: 20px;
-    letter-spacing: 1px;
     overflow: hidden;
     white-space: nowrap;
     font-family: "Archivo Black", sans-serif;
@@ -436,19 +397,19 @@ html, body {
 
 @keyframes neonGlow {
     0% {
-        box-shadow: 0 0 0px #00ff00;
+        box-shadow: 0 0 0px #00f000;
     }
 
     50% {
-        box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+        box-shadow: 0 0 20px #32ff32, 0 0 40px #82fa82;
     }
 
     100% {
-        box-shadow: 0 0 0px #00ff00;
+        box-shadow: 0 0 0px #b8ffb8;
     }
 }
 
-.square-logo {
+.quadrado-logo {
     background-color: white;
     border-radius: 8px;
     width: 60px;
@@ -461,7 +422,7 @@ html, body {
     z-index: 1;
 }
 
-.square-logo::after {
+.quadrado-logo::after {
     content: '';
     position: absolute;
     top: -10px;
@@ -493,50 +454,13 @@ html, body {
   /* Animação para mover logo-container para esquerda */
   @keyframes moveLeft {
     to {
-      transform: translate(calc(-50% - 400px), -50%);
+      transform: translate(calc(-50% - 470px), -50%);
     }
-  }
-  
-  /* Modificação na classe .lines para adicionar delay e sumir após desenho */
-  .lines {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 600px;
-    transform: translate(-50%, -50%);
-    stroke-dasharray: 2000;
-    stroke-dashoffset: 2000;
-    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;
-    z-index: 1;
   }
   
   /* Faz o texto sumir após os quadrados aparecerem */
   .logo-text, .logo-subtext {
     animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite, fadeOut 1s ease 4s forwards;
-  }
-  
-  /* Depois que o quadrado e texto sumirem, move o container da logo */
-  .logo-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    text-align: center;
-    color: white;
-    animation: moveLeft 1s ease 5s forwards;
-    animation-fill-mode: forwards;
-  }
-  
-  /* Ajuste para não piscar o cursor durante fade out */
-  @keyframes blinkCaret {
-    0%, 100% {
-      border-color: transparent;
-    }
-    50% {
-      border-color: white;
-    }
   }
   
   /* Para as animações typing permanecerem na largura final antes do fadeOut */
@@ -551,27 +475,7 @@ html, body {
     white-space: nowrap;
     overflow: hidden;
   }
-  .new-text {
-    position: absolute;
-    top: -60px; /* fica um pouco acima da logo */
-    left: 50%;
-    transform: translate(-50%, 20px); /* centraliza horizontal e começa um pouco abaixo */
-    width: max-content;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 24px;
-    color: #000000;
-    opacity: 0;
-    animation: fadeInUp 0.7s forwards;
-    animation-delay: 5s; /* ajustar conforme a animação da logo */
-  }
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
+
   .categoria-bloco {
     position: fixed;
     top: 50%;
@@ -613,11 +517,6 @@ html, body {
     font-size: 1.3rem;
     margin-bottom: 12px;
     text-align: center;
-  }
-  
-  .categoria-card ul {
-    list-style: none;
-    padding-left: 0;
   }
   
   .categoria-card li {
@@ -667,30 +566,6 @@ html, body {
       transform: translateY(0);
     }
   }
-
-  
-  @keyframes titulo {
-    0% {
-      opacity: 0;
-      transform: translateX(0) translateY(0);
-    }
-    25% {
-      opacity: 1;
-      transform: translateY(250px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(250px);
-        transform: translateX(50px);
-    }
-  }
-
-  .animate-titulo{
-    font-size: larger;
-    animation: titulo 1s 6s linear forwards;
-  }
-  
-  
 
   
   

@@ -21,9 +21,8 @@ html, body {
     right: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(#2ecc71 1px, transparent 1px);
+    background-image: radial-gradient(#2ecc71 1.2px, transparent 1px);
     background-size: 25px 25px;
-    animation: fadeDots 5s ease-in-out infinite alternate;
 }
 
 /* Quadrados do fundo */
@@ -210,7 +209,7 @@ html, body {
     transform: translate(-50%, -50%);
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
-    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;;
+    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;
     z-index: 1;
 }
 
@@ -293,7 +292,6 @@ html, body {
 /* Animação escalonada dos quadrados e círculo da logo */
 /* Cada filho da logo-grid recebe um delay diferente para animação */
 .logo-grid>div:nth-child(1) {
-
     animation-delay: 0.3s;
     /* círculo */
 }

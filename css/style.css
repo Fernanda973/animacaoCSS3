@@ -397,15 +397,15 @@ html, body {
 
 @keyframes neonGlow {
     0% {
-        box-shadow: 0 0 0px #00f000;
+        box-shadow: 0 0 0px #4eff4e;
     }
 
     50% {
-        box-shadow: 0 0 20px #32ff32, 0 0 40px #82fa82;
+        box-shadow: 0 0 20px #6eff6e, 0 0 40px #98ff98;
     }
 
     100% {
-        box-shadow: 0 0 0px #b8ffb8;
+        box-shadow: 0 0 0px #c7ffc7;
     }
 }
 
@@ -497,10 +497,6 @@ html, body {
     justify-content: center;
   }
   
-  .categoria-single {
-    margin-top: 10px;
-  }
-  
   .categoria-card {
     background: rgba(22, 94, 4, 0.95);
     color: white;
@@ -566,6 +562,3 @@ html, body {
       transform: translateY(0);
     }
   }
-
-  
-  

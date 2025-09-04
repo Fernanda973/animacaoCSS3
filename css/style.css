@@ -31,7 +31,7 @@ html, body {
     background: linear-gradient(145deg, #00ff15, #41ac58);
     border-radius: 6px;
     opacity: 0;
-    animation: fadeInMove 1.5s ease forwards;
+    animation: desEmMov 1.5s ease forwards;
 }
 
 @keyframes brilhar {
@@ -187,7 +187,7 @@ html, body {
 }
 
 /* Animação quadrados, APARECEM SUAVEMENTE NA TELA */
-@keyframes fadeInMove {
+@keyframes desEmMov {
     0% {
         opacity: 0;
         transform: translateY(20px);
@@ -209,11 +209,11 @@ html, body {
     transform: translate(-50%, -50%);
     stroke-dasharray: 2000;
     stroke-dashoffset: 2000;
-    animation: drawLines 3s ease forwards, fadeOut 1s ease 4s forwards;
+    animation: desLinhas 3s ease forwards, desaparecer 1s ease 4s forwards;
     z-index: 1;
 }
 
-@keyframes drawLines {
+@keyframes desLinhas {
     to {
         stroke-dashoffset: 0;
     }
@@ -228,8 +228,7 @@ html, body {
     z-index: 2;
     text-align: center;
     color: white;
-    animation: moveLeft 1s ease 5s forwards;
-    animation-fill-mode: forwards;
+    animation: movEsquerda 1s ease 5s forwards;
 }
 
 /* Grid logo IFSP */
@@ -250,7 +249,7 @@ html, body {
     height: 60px;
     box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3); /* sombra leve */
     transform: translateY(20px);
-    animation: fadeInMove 0.7s ease forwards;
+    animation: desEmMov 0.7s ease forwards;
 }
 
 @keyframes trocaDeCores {
@@ -284,7 +283,7 @@ html, body {
     opacity: 0;
     transform: translateY(20px);
     animation:
-        fadeInMove 0.7s ease forwards,
+        desEmMov 0.7s ease forwards,
         trocaDeCores 5s 0.7s forwards;
     /* 0.7s delay para iniciar após o fadeIn */
 }
@@ -343,7 +342,7 @@ html, body {
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid white;
-    animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite;
+    animation: tipo 3s steps(20) forwards, piscar 0.75s step-end infinite;
 }
 
 .logo-subtext {
@@ -353,12 +352,12 @@ html, body {
     overflow: hidden;
     white-space: nowrap;
     font-family: "Archivo Black", sans-serif;
-    animation: typing2 3s steps(18) forwards, blinkCaret 0.75s step-end infinite;
+    animation: tipo2 3s steps(18) forwards, piscar 0.75s step-end infinite;
 
 }
 
 /* Animação que revela o texto letra por letra */
-@keyframes typing {
+@keyframes tipo {
     from {
         width: 0
     }
@@ -370,7 +369,7 @@ html, body {
     /* 18 caracteres, ajuste se mudar texto */
 }
 
-@keyframes typing2 {
+@keyframes tipo2 {
     from {
         width: 0
     }
@@ -383,7 +382,7 @@ html, body {
 }
 
 /* Piscar do cursor */
-@keyframes blinkCaret {
+@keyframes piscar {
     0%, 100% {
         border-color: transparent
     }
@@ -393,7 +392,7 @@ html, body {
     }
 }
 
-@keyframes neonGlow {
+@keyframes neon {
     0% {
         box-shadow: 0 0 0px #4eff4e;
     }
@@ -415,7 +414,7 @@ html, body {
     box-shadow: 8px 4px 6px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInMove 0.7s ease forwards;
+    animation: desEmMov 0.7s ease forwards;
     position: relative;
     z-index: 1;
 }
@@ -432,8 +431,8 @@ html, body {
     filter: blur(8px);
     opacity: 0;
     z-index: -1;
-    animation: neonGlow 2s ease-in-out 2.2s forwards;
-    animation: fadeInMove 0.7s ease forwards, apagar 1s ease 5s forwards;
+    animation: neon 2s ease-in-out 2.2s forwards;
+    animation: desEmMov 0.7s ease forwards, apagar 1s ease 5s forwards;
 }
 
 @keyframes apagar {
@@ -443,14 +442,14 @@ html, body {
     }
 }
 /* Nova animação para sumir o quadrado verde */
-@keyframes fadeOut {
+@keyframes desaparecer {
     to {
       opacity: 0;
     }
   }
   
   /* Animação para mover logo-container para esquerda */
-  @keyframes moveLeft {
+  @keyframes movEsquerda {
     to {
       transform: translate(calc(-50% - 470px), -50%);
     }
@@ -458,7 +457,7 @@ html, body {
   
   /* Faz o texto sumir após os quadrados aparecerem */
   .logo-text, .logo-subtext {
-    animation: typing 3s steps(20) forwards, blinkCaret 0.75s step-end infinite, fadeOut 1s ease 4s forwards;
+    animation: tipo 3s steps(20) forwards, piscar 0.75s step-end infinite, desaparecer 1s ease 4s forwards;
   }
   
   /* Para as animações typing permanecerem na largura final antes do fadeOut */
@@ -485,7 +484,7 @@ html, body {
     gap: 30px;
     opacity: 0;
     z-index: 10;
-    animation: fadeInCategorias 1s forwards, pularPraCima 6s forwards;
+    animation: desCategorias 1s forwards, pularPraCima 6s forwards;
     animation-delay: 5s, 12s; /* primeiro aparece, depois sobe */
   }
   
@@ -503,7 +502,7 @@ html, body {
     width: 280px;
     box-shadow: 0 0 10px #2ecc71;
     font-family: "Poppins", sans-serif;
-    animation: fadeInMove 0.8s ease forwards;
+    animation: desEmMov 0.8s ease forwards;
     height: 405px;
   }
   
@@ -531,7 +530,7 @@ html, body {
     color: #2ecc71
   }
   
-  @keyframes fadeInCategorias {
+  @keyframes desCategorias {
     to {
       opacity: 1;
     }
@@ -545,18 +544,5 @@ html, body {
     100% {
       transform: translate(50%, 200%);
       opacity: 0;
-    }
-  }
-  
-  /* Reutiliza a animação existente */
-  @keyframes fadeInMove {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translateY(0);
     }
   }

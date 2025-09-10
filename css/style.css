@@ -473,76 +473,102 @@ html, body {
     overflow: hidden;
   }
 
-  .categoria-bloco {
-    position: fixed;
-    top: 50%;
-    left: 300%; /* espaço à direita da logo */
+/* Área dos cards */
+.sequencia {
+  position: absolute;
+  top: 10%; /* sobe os cards para cima */
+  left: 400px; /* mais à direita da logo */
+  width: 450px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo dos cards */
+.card,
+.final {
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(145deg, #2ecc71, #1f7a2e);
+  color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #2ecc71;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+/* Animação de aparecer e sumir */
+@keyframes aparecerCard {
+  0%   { opacity: 0; transform: translateY(-40px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  80%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-120px); }
+}
+
+/* Sequência dos cards */
+.card:nth-child(1) {
+  animation: aparecerCard 4s ease forwards;
+  animation-delay: 5s;
+}
+
+.card:nth-child(2) {
+  animation: aparecerCard 4s ease forwards;
+  animation-delay: 10s;
+}
+
+.card:nth-child(3) {
+  animation: aparecerCard 4s ease forwards;
+  animation-delay: 15s;
+}
+
+/* Final mensagem redes sociais */
+.final {
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: aparecerCard 4s ease forwards;
+  animation-delay: 20s;
+}
+
+/* Logo voltando para o centro rapidamente */
+@keyframes voltarCentro {
+  to {
     transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
-    opacity: 0;
-    z-index: 10;
-    animation: desCategorias 1s forwards, pularPraCima 6s forwards;
-    animation-delay: 5s, 12s; /* primeiro aparece, depois sobe */
   }
-  
-  .categoria-row {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-  }
-  
-  .categoria-card {
-    background: rgba(22, 94, 4, 0.95);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 280px;
-    box-shadow: 0 0 10px #2ecc71;
-    font-family: "Poppins", sans-serif;
-    animation: desEmMov 0.8s ease forwards;
-    height: 405px;
-  }
-  
-  .categoria-card h2 {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    text-align: center;
-  }
-  
-  .categoria-card li {
-    margin-bottom: 10px;
-    font-size: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .categoria-card a {
-    color: #00ff00;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
-  .categoria-card a:hover {
-    color: #2ecc71
-  }
-  
-  @keyframes desCategorias {
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes subirECurtir {
-    0% {
-      transform: translate(50%, 500%);
-      opacity: 1;
-    }
-    100% {
-      transform: translate(50%, 200%);
-      opacity: 0;
-    }
-  }
+}
+
+.logo-container {
+  animation: movEsquerda 1s ease 5s forwards, voltarCentro 0.8s ease 24s forwards;
+}
+
+/* Texto dentro dos cards com leve animação */
+.card ul li {
+  opacity: 0;
+  animation: aparecerTexto 1s forwards;
+}
+
+.card:nth-child(1) ul li { animation-delay: 5.5s; }
+.card:nth-child(2) ul li { animation-delay: 10.5s; }
+.card:nth-child(3) ul li { animation-delay: 15.5s; }
+
+@keyframes aparecerTexto {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Redes sociais */
+.redes {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.redes img {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 0 6px #00ff00);
+}
